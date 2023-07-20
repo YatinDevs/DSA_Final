@@ -1,5 +1,6 @@
 package LinkedList;
 import java.util.*;
+
 public class SinglyLinkedList {
 	
 	private Node head; // Declaring Head Node Which is Always Null at Beginning.      Head ----> Null
@@ -51,6 +52,85 @@ public class SinglyLinkedList {
 		 temp.next= n.next;
 		 n.next=temp;
 	}
+    
+	public void removeFirst() {
+		if(head==null) {
+			return ;
+		}
+		
+        Node temp=head;
+		head=head.next;
+		temp.next=null;
+		
+	}
+	
+	public void deleteLast() {
+		
+		if(head==null||head.next==null) {
+			return;
+		}
+		Node current=head;
+		Node previous=null;
+       while(null!=current.next) {
+    	   previous=current;
+    	   current=previous.next;
+    	  
+       }
+       previous.next=null;
+	 
+	
+	}
+	
+	public void deleteAtPos(int pos) { //4
+		 if(pos==1) {
+		     	head=head.next;
+			}else {
+				Node previous=head; // 	
+				int count=1; // 1 2 3 4
+				while(count<pos-1) { // 1!=4 2!=4 3!=4 4=4
+					previous=previous.next; // 1  2  3
+					count++; // 2 3 4
+				}
+				Node current=previous.next;
+				previous.next=current.next;
+			}
+	
+		
+   
+	}
+	
+	 
+	 public int listSize() {
+		 int count=0;
+		 
+		 Node n = this.head;
+		 while(n!=null) {
+			 count++;
+			 n=n.next;
+		 }
+		 
+		 return count;
+	 }
+	 
+	 public boolean isListEmpty() {
+		 if(this.head==null) {
+			 return true;
+		 }
+		 
+		 return false;
+	 }
+	 
+	 public void remove(int k) {
+		 Node n = this.head;
+		 
+		 for(int i=1;i<=k-2;i++) {
+			 n=n.next;
+		 }
+		 
+		 Node temp = n.next;
+		 n.next=temp.next;
+		 temp.next=null;
+	 }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -79,8 +159,78 @@ public class SinglyLinkedList {
         // Adding at any Position
         list.insertAt(3, 4);
         list.display();
+       /* 
+        // Remove First Element
+        list.removeFirst();
+      //  list.removeFirst();
+        list.display();
+        //Remove Last Element
+        list.deleteLast();
+      //  list.display();
+        list.deleteLast();
 
+         list.display();
+       */
         
+        list.deleteAtPos(4);
+        list.display();
+        
+        System.out.println(list.listSize());
+        System.out.println(list.isListEmpty());
+
+	
 	}
 
 }
+
+/*
+ * The following function takes a single-linked list of integers as a parameter and rearranges the elements of the list. The function is called with the list containing the integers 1, 2, 3, 4, 5, 6, 7 in the given order. What will be the contents of the list after the function completes execution?
+
+class Node {
+
+	int value;
+
+	Node next;
+
+}
+
+void rearrange(Node list) {
+
+	Node p, q;
+
+	int temp;
+
+
+
+	if (list == null || list.next == null) {
+
+		return;
+
+	}
+
+
+
+	p = list;
+
+	q = list.next;
+
+
+
+	while (q != null) {
+
+		temp = p.value;
+
+		p.value = q.value;
+
+		q.value = temp;
+
+		p = q.next;
+
+		q = p != null ? p.next : null;
+
+	}
+
+}
+ * 
+ * */
+ 
