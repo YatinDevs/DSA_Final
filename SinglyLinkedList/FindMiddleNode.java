@@ -4,22 +4,16 @@ public class FindMiddleNode {
 	
 	private Node head;
 	
-	   public Node middleNode(Node head) {
-	    
-	    
-	           if (head == null)
-	            return null;
-
-	           Node slow = head;
-	           Node fast = head;
-
-	        while (fast != null && fast.next != null) {
-	            slow = slow.next;
-	            fast = fast.next.next;
+	   public Node middleNode( ) {
+	        Node s = head;
+	        Node f = head;
+           
+	        while(f!=null && f.next != null) {
+	        	s = s.next;
+	        	f = f.next.next;
 	        }
-
-	        return slow;
 	        
+		   return s;
 	          /*
 	        int count = 0;
 	        Node temp = head;
@@ -39,79 +33,39 @@ public class FindMiddleNode {
 	        */
 	    }
 	
-
-	    public void prepend(int data) {
-	    
-	    Node new_node = new Node(data);
-	    
-	    new_node.next = head;
-	    head = new_node;
+	    public void printList(Node head) {
 	    	
-	    }
-	    
-	    public void append(int data) {
+	    	Node current = head;
 	    	
-	    	Node  new_node = new Node(data);
-	    	if(head == null) {
-	    		head = new_node;
-	    		return;
+	    	while(current!=null) {
+	    		System.out.print(current.data + " --> ");
+	    		current = current.next;
 	    	}
-	    	else {
-	    		Node current = head;
-	    		while(current.next!=null) {
-	    			current = current.next;
-	    		}
-	    		current.next=new_node;
-	    	}
-	    	
+	    	System.out.print("null");
+	    	System.out.println(" ");
 	    }
-	    
-	    public void insertAt(int pos,int data) {
-	    	Node new_node = new Node(data);
-	    	
-	       if(pos == 1) {
-	    	   new_node.next = head;
-	    	   head = new_node;
-	       }
-	       else {
-	    	   Node previous = head;
-	    	   int count=1;
-	    	   while(count<pos-1) { // 1 2 
-	    		   previous = previous.next; // 2 3 
-	    		   count++;
-	    	   } 
-	           Node current = previous.next;
-	    	   previous.next = new_node;
-	    	   new_node.next=current;
 
-	       }
-	    }
-	    
-		 public void add(int val, int k) {
-			 Node new_node = new Node(val);
-			 
-			 Node current = head;
-			 
-			 for(int i=1;i<=k-2;i++) {
-				 current=current.next;
-			 }
-			 
-			 new_node.next= current.next;
-			 current.next=new_node;
-		 }
-		 
-		 
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		FindMiddleNode list = new FindMiddleNode();
 		
-	      list.prepend(10);
-	      list.prepend(5);
-	      list.prepend(7);
-	      list.prepend(3);
-	      list.prepend(15);
-       System.out.println(list.middleNode(list.head).data);
+	      list.head = new Node (1);
+	       Node second = new Node(2);
+	       Node third = new Node(3);
+	       Node fourth = new Node(4);
+	       Node fifth = new Node(5);
+	       Node sixth = new Node(6);
+	       list.head.next=second;
+	       second.next = third;
+	       third.next = fourth;
+	       fourth.next = fifth;
+	       fifth.next = sixth;
+	      list.printList(list.head);
+	      Node middleNode = list.middleNode();
+         System.out.println(middleNode.data);
+	      list.printList(list.head);
        
 
 	}
