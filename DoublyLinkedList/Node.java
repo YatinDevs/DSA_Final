@@ -1,6 +1,7 @@
 package DoublyLinkedList;
 
 import java.util.*;
+
 public class Node {
 
 	public int data;
