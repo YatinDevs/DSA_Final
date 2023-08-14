@@ -114,11 +114,13 @@ public class DoublyLinkedList {
     	c.next.prev=null;
     }
 
-    public void removeLast(){
-	    ListNode c= tail;
-	    tail =tail.prev;
-	    if(tail.prev == null){
-		    head.next = null;
+     public void removeLast(){
+	    ListNode c= tail.prev;
+	    c.next = null;
+	    tail.prev = null;
+	    tail = c;
+	    if(head.next == null){
+	    	head = null;
 	    }
     }
 	public static void main(String[] args) {
