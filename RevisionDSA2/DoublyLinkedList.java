@@ -112,8 +112,14 @@ public class DoublyLinkedList {
     	c.next.prev = c;
     	c.next.next.prev=null;
     	c.next.prev=null;
-    
-    	
+    }
+
+    public void removeLast(){
+	    ListNode c= tail;
+	    tail =tail.prev;
+	    if(tail.prev == null){
+		    head.next = null;
+	    }
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
