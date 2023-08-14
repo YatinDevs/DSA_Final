@@ -1,6 +1,8 @@
 package RevisionDSA2;
 import java.util.*;
 
+import LinkedList.Node;
+
 public class SinglyLinkedList {
     
 	private ListNode head;
@@ -118,6 +120,8 @@ public class SinglyLinkedList {
 		c.next = c.next.next;	
 	}
 	
+	// Reverse a Linked List
+	
 	public ListNode reversePI() {
 		
 		ListNode previous = null;
@@ -134,27 +138,115 @@ public class SinglyLinkedList {
 		return head;
 		
 	}
+	
+	// Search An Element
+   public int indexOf(int target, ListNode head ) {
+	   ListNode c = head;
+	   int idx = 0;
+	   while(c!=null) {
+		   if(c.data == target) {
+			   return idx;
+		   }
+		   c = c.next;
+		   idx++;
+	   }
+	   return -1;
+   } 
+   
+// Delete the Linked List
+	public void deletelist() {
+		head = null;
+	}
+   /* 
+	// Delete the Last Node in LL
+	public void deleteLast() {
+		Node temp = head;
+		while(temp.next.next!=null) {
+			temp = temp.next;
+		}
+		temp.next = null;
+	}
+	// Delete the First Node in LL
+		public void deleteFirst() {
+			Node temp = head;
+			head = head.next;
+			temp = null;
+		}
+	*/
+	// Print Middle of Given LL.
+	public void middleElement() {
+		if(head ==null) {
+			return;
+		}
+		ListNode  c = head;
+		int middleidx = size()/2;
+		while(middleidx!=0) {
+			c=c.next;
+			middleidx--;
+		}
+		System.out.println(c.data +" ");
+		// O(size), overall time complexity
+	} 
+	
+	public void middleEle() {
+		ListNode s = head;
+		ListNode f = head;
+		while(f!=null && f.next!=null) {
+			s = s.next;
+			f = f.next.next;
+		}
+		
+		System.out.println(s.data +" ");
+
+	}
+	// O(size) time complexity\
+	
+	// Java program to count occurrences in a linked list
+	
+	public int countOfOccurence(ListNode head,int search_for) {
+		int count = 0;
+		ListNode c = head;
+		while(c!=null) {
+			if(c.data == search_for) {
+				count++;
+			}
+			c=c.next;
+		}
+		return count;
+	}
+
 	public static void main(String[] args) {
 		
 		SinglyLinkedList list = new SinglyLinkedList();
 		
-		System.out.println(list.empty());
-		System.out.println(list.getCount());
+		//System.out.println(list.empty());
+	    //System.out.println(list.getCount());
 
 		list.addFirst(100);
 		list.addFirst(200);
 		list.addLast(300);
 		list.addLast(400);
+		list.addLast(300);
+	//	list.addLast(300);
+
 		list.add(700,1);
+   /*
 		//list.deleteFirst();
      	//	list.deleteLast();
 		//list.delete(5);
 		System.out.println(list.getCount());
 		System.out.println(list.empty());
 		System.out.println(list.size());
-		list.reversePI();
-		list.display();
-
+		//list.reversePI();
+		//list.deletelist();
+		System.out.println(list.indexOf(100,list.head));
+		
+	*/
+		
+		  list.display();
+       // list.middleEle();
+		  int result =list.countOfOccurence(list.head, 300);
+          System.out.println(result);
 	}
 
 }
