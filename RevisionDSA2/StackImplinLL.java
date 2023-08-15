@@ -34,6 +34,22 @@ public class StackImplinLL {
     	}
     	return top.data;
     }
+    
+    public void printStack() {
+		if(top==null) {
+			System.out.println("stack is empty");
+		}
+		else {
+			ListNode n = top;
+			while(n!=null) {
+				System.out.print(n.data+"->");
+				n=n.next;
+			}
+			System.out.print("null");
+
+		}
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
@@ -55,6 +71,7 @@ public class StackImplinLL {
 		
 		int num = s.peek();
 		System.out.println(s.length);
+		s.printStack();
       
 	}
 

@@ -93,6 +93,8 @@ public class DoublyLinkedList {
     public void removeFirst() {
     	ListNode c = head;
     	head = head.next;
+    	c.next =null;
+    	head.prev = null;
     	if(head.next == null) {
     		tail.next = null;
     	}
@@ -112,9 +114,9 @@ public class DoublyLinkedList {
     	c.next.prev = c;
     	c.next.next.prev=null;
     	c.next.prev=null;
+      	
     }
-
-     public void removeLast(){
+    public void removeLast(){
 	    ListNode c= tail.prev;
 	    c.next = null;
 	    tail.prev = null;
@@ -123,6 +125,15 @@ public class DoublyLinkedList {
 	    	head = null;
 	    }
     }
+    
+    public void printReverse() {
+    	ListNode n = tail;
+		while(n!=null) {
+			System.out.print(n.data+"->");
+			n=n.prev;
+		}
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		DoublyLinkedList list = new DoublyLinkedList();
@@ -134,10 +145,11 @@ public class DoublyLinkedList {
          list.addLast(1);
          list.add(100,2);
         System.out.println(list.empty());
-        //list.removeFirst();
+        list.removeFirst();
         //list.remove(5);
+        //list.removeLast();
         list.displayForward();
-       // list.displayBackward();
+        list.displayBackward();
 
 	}
 
