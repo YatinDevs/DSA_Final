@@ -14,6 +14,7 @@ public class ReverseLinkedList {
 	}
 	
 	public void addFirst(int data) {
+		length++;
 		Node n = new Node(data);
 		
 		n.next = head;
