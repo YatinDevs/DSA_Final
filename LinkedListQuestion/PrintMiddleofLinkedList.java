@@ -45,6 +45,10 @@ public class PrintMiddleofLinkedList {
 		System.out.print("null");
 		System.out.println("  ");
 	}
+	/*
+	 * The dominant factor here is the traversal of the linked list
+       which takes O(N) time. The ArrayList operations are negligible compared to the linked list traversal.
+	 */
 	public void printMiddleElement () {
 		ArrayList<Integer> list = new ArrayList<>();
 		Node c = head;
@@ -54,6 +58,35 @@ public class PrintMiddleofLinkedList {
 		}
 		System.out.print(list.get(list.size()/2));
  	}
+	
+	 public int getLen()
+	    {
+	        int length = 0;
+	        Node temp = head;
+	        while (temp != null) {
+	            length++;
+	            temp = temp.next;
+	        }
+	        return length;
+	    }
+	 
+	    /*Printing the middle element of the list.*/
+	    public void printMiddleEle()
+	    {
+	        if (head != null) {
+	            int length = getLen();
+	            Node temp = head;
+	            int middleLength = length / 2;
+	            while (middleLength != 0) {
+	                temp = temp.next;
+	                middleLength--;
+	            }
+	            System.out.print("The middle element is ["
+	                             + temp.data + "]");
+	            System.out.println();
+	        }
+	    }
+	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PrintMiddleofLinkedList list = new PrintMiddleofLinkedList();
