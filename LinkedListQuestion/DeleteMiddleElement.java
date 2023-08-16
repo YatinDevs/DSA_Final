@@ -31,16 +31,19 @@ public class DeleteMiddleElement {
 	}
 	
 	public  Node deleteMiddleElement() {
-		Node s = head;
-		Node f = head;
-		Node p = null;
-		while(f!=null && f.next!=null) {
-			p = s;
-			s = s.next;
-			f = f.next.next;
-		}
-		p.next = s.next;
-		return head;
+		if(head==null || head.next==null){
+            return null;
+        }
+        Node slow = head ;
+        Node fast = head;
+        Node temp = head;
+        while(fast!=null && fast.next!=null){
+            temp=slow;
+            slow=slow.next;
+            fast=fast.next.next;
+        } 
+        temp.next=temp.next.next;
+        return head;
 		
 	}
 	public static void main(String[] args) {
