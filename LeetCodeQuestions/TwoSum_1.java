@@ -19,6 +19,35 @@ public class TwoSum_1 {
         }
         return new int[0];
    }
+	
+	 public int[] twoSum1(int[] nums, int target) {
+	        /*
+	         
+	         int n=nums.length;
+	         for(int i=0;i<n-1;i++){
+	             for(int j=i+1;j<n;j++){
+	                 int sum=nums[i]+nums[j];
+	                 if(sum==target){
+	                     int result[] = new int[2];
+	                     result[0]=i;
+	                     result[1]=j;
+	                     return result;
+	                 }
+	             }
+	         }
+	         return new int[0];
+	         */
+	         HashMap<Integer,Integer> map = new HashMap<>();
+	         int n=nums.length;
+	         for(int i=0;i<n;i++){
+	             int find = target - nums[i];
+	             if(map.containsKey(find)){
+	                 return new int[] { map.get(find),i};
+	             }
+	             map.put(nums[i],i);
+	         }
+	       return new int [0];
+	    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int nums[] = {2,7,11,15};
