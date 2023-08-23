@@ -216,14 +216,7 @@ public class SinglyLinkedListImpl {
 			head = head.next;
 			temp = null;
 		}
-		// Delete the Last Node in LL
-		public void deleteMiddle() {
-			Node temp = head;
-			while(temp.next.next!=null) {
-				temp = temp.next;
-			}
-			temp.next = null;
-		}
+	
 	// Find Duplicates in Linked list
 	
 	
