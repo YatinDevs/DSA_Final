@@ -1,27 +1,25 @@
 package Sorting;
 import java.util.*;
 
-public class BubbleSort {
+public class BubbleSort { // Sinking Sort Algorithm
     
 	public static void bubbleSort(int arr[],int n) {
+	// Days : 1 2 3	4
 		
-		for(int i = n-1 ; i >= 0 ; i--) {
-			// 6 5 4 3 2 1 0
-			for(int j = 1 ; j <= i ; j++ ) { //  1 2 3 4 5 6
+		for(int i = n-1; i >= 0 ; i--) {
+			for(int j = 1; j <= i;j++ ) {
 				
 				if(arr[j-1] > arr[j]) {
 					int temp = arr[j-1];
 					arr[j-1] = arr[j];
 					arr[j] = temp;
 				}
-				
 			}
-			
 		}
 	}
 	
 	public static void printArray(int arr[]) {
-		System.out.println(Arrays.toString(arr));
+	 	System.out.println(Arrays.toString(arr));
 	}
 	public static void main(String args[]) {
 		
